@@ -4,37 +4,45 @@ Varify is a command-line tool that converts a JSON configuration file into CSS v
 
 ## Features
 
-* Parse a JSON configuration to generate CSS variables.
-* Minify the output CSS for production-ready usage.
-* Flexible input and output file paths via command-line flags.
-* Customizable via JSON and command-line options.
+- Parse a JSON configuration to generate CSS variables.
+- Minify the output CSS for production-ready usage.
+- Flexible input and output file paths via command-line flags.
+- Customizable via JSON and command-line options.
 
 ## Installation
 
 ### Prerequisites
-* Go 2.23 or higher
+
+- Go 2.23 or higher
 
 ### Build the binary
+
 1. Clone the repository and build the binary
-```
+
+```sh
 git clone https://github.com/abhilash26/varify.git
 cd varify
 go build -o varify main.go
 ```
+
 2. Build the binary
-```
+
+```sh
 cd varify
 go build -o varify main.go
 ```
+
 3. Optionally, move the binary to a directory in your `PATH`:
-```
+
+```sh
 mv varify /usr/local/bin
 ```
 
 ## Usage
 
 ### Command Line Options
-```
+
+```sh
 Usage:
   varify [options]
 
@@ -51,7 +59,7 @@ Example:
 
 ### Import Valid JSON Structure
 
-```
+```json
 {
   "output": "./varify.min.css",
   "selector": ":root",
@@ -66,26 +74,36 @@ Example:
     }
   }
 }
+```
 
-```
 ### Example Usage
+
 1. Convert JSON to CSS without minification:
-```
+
+```sh
 varify -i ./varify.json -o ./output.css
 ```
+
 2. Minify the generated CSS:
-```
+
+```sh
 varify -i ./varify.json -o ./output.min.css -m
 ```
+
 3. Use default paths:
-* Input: `./varify.json`
-* Output: As specified in the JSON file.
-```
+
+- Input: `./varify.json`
+- Output: As specified in the JSON file.
+
+```sh
 varify
 ```
+
 ### Generated Output Example
+
 Given the above JSON, the output would look like this:
-```
+
+```css
 :root {
   --text-xs: clamp(0.625rem, 0.5rem + 0.3125vw, 0.75rem);
   --text-sm: clamp(0.75rem, 0.625rem + 0.3125vw, 0.875rem);
@@ -93,16 +111,32 @@ Given the above JSON, the output would look like this:
   --color-secondary: #2ecc71;
 }
 ```
+
 If the --minify flag is used:
-```
-:root{--text-xs:clamp(0.625rem,0.5rem+0.3125vw,0.75rem);--text-sm:clamp(0.75rem,0.625rem+0.3125vw,0.875rem);--color-primary:#3498db;--color-secondary:#2ecc71;}
+
+```css
+:root {
+  --text-xs: clamp(0.625rem, 0.5rem+0.3125vw, 0.75rem);
+  --text-sm: clamp(0.75rem, 0.625rem+0.3125vw, 0.875rem);
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+}
 ```
 
+## Inspirations
+
+- [Pollen](pollen.style)
+- [Tailwindcss](https://tailwindcss.com/)
+- [Open Props](https://open-props.style/)
+
 ## Contribution
+
 Contributions are welcome! Feel free to fork the repository, create a feature branch, and submit a pull request.
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the [MIT License](https://github.com/abhilash26/varify/blob/main/LICENSE).
 
 ## Support
-For any questions or issues, please open an issue on GitHub.
+
+For any questions or issues, please [open an issue](https://github.com/abhilash26/varify/issues) on GitHub.

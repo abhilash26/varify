@@ -99,7 +99,7 @@ If the --minify flag is used:
 ```
 
 ## Inspirations
-* [Pollen](pollen.style)
+* [Pollen](https://pollen.style)
 * [Tailwindcss](https://tailwindcss.com/) 
 * [Open Props](https://open-props.style/)
 
